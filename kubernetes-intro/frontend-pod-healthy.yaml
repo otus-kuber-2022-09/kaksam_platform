@@ -7,16 +7,14 @@ metadata:
   name: frontend
 spec:
   containers:
-  - image: kaksam/frontend:1.0
+  - image: kaksam/homework-frontend:1.0
     name: frontend
     resources: {}
     env:
-      - name: PORT
-        value: "8080"
       - name: PRODUCT_CATALOG_SERVICE_ADDR
         value: "productcatalogservice:3550"
       - name: CURRENCY_SERVICE_ADDR
-        value: "currencyservice:7000"
+        value: "currencyservice:70"
       - name: CART_SERVICE_ADDR
         value: "cartservice:7070"
       - name: RECOMMENDATION_SERVICE_ADDR

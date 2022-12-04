@@ -3,21 +3,21 @@ kind: Pod
 metadata:
   name: web
   labels:
-   web: app
+    app: web
 spec:
+  volumes:
+  - name: app
+    emptyDir: { }
   containers:
   - name: web
-    image: kaksam/web-server:0.1
+    image: kaksam/homework:1.0
     volumeMounts:
     - name: app
       mountPath: /app
   initContainers:
-  - name: init-container
+  - name: init
     image: busybox:latest
     command: ['sh', '-c', 'wget -O- https://tinyurl.com/otus-k8s-intro | sh']
     volumeMounts:
     - name: app
       mountPath: /app
-  volumes:
-  - name: app
-    emptyDir: {}
