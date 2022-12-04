@@ -7,7 +7,7 @@ metadata:
   name: frontend
 spec:
   containers:
-  - image: kaksam/homework-frontend:1.0
+  - image: kaksam/frontend:1.0
     name: frontend
     resources: {}
   dnsPolicy: ClusterFirst
