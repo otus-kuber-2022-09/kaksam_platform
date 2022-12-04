@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web
+  labels:
+   web: app
+spec:
+  containers:
+  - name: web
+    image: kaksam/web-server:0.1
+    volumeMounts:
+    - name: app
+      mountPath: /app
+  initContainers:
+  - name: init-container
+    image: busybox:latest
+    command: ['sh', '-c', 'wget -O- https://tinyurl.com/otus-k8s-intro | sh']
+    volumeMounts:
+    - name: app
+      mountPath: /app
+  volumes:
+  - name: app
+    emptyDir: {}
